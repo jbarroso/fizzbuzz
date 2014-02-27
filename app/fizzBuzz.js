@@ -7,12 +7,15 @@ var fizzBuzz = (function() {
         factor: 5,
         result: 'Buzz'
     };
+    var isDivisibleBy = function(number, factor) {
+        return (number % factor === 0);
+    };
     return {
         say: function(number) {
-            if (number % fizz.factor === 0) {
+            if (isDivisibleBy(number, fizz.factor)) {
                 return fizz.result;
             }
-            if (number % buzz.factor === 0) {
+            if (isDivisibleBy(number, buzz.factor)) {
                 return buzz.result;
             }
             return number;
