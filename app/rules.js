@@ -1,12 +1,4 @@
 var fizzBuzz = (function(fb) {
-    fb.fizz = {
-        factor: 3,
-        result: 'Fizz'
-    };
-    fb.buzz = {
-        factor: 5,
-        result: 'Buzz'
-    };
     var isDivisibleBy = function(number, factor) {
         return (number % factor === 0);
     };
@@ -24,10 +16,5 @@ var fizzBuzz = (function(fb) {
         fb.DivisibleByRule(fb.buzz),
         fb.DefaultNumberRule
     ];
-    fb.say = function(number) {
-        return fb.rules.reduce(function(output, rule) {
-            return rule(output, number);
-        }, '');
-    };
     return fb;
 })(fizzBuzz || {});
