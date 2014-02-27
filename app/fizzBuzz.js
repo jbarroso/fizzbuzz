@@ -26,11 +26,9 @@ var fizzBuzz = (function() {
     ];
     return {
         say: function(number) {
-            var output = '';
-            for (var i = 0, l = rules.length; i < l; i++) {
-                output = rules[i](output, number);
-            }
-            return output;
+            return rules.reduce(function(output, rule) {
+                return rule(output, number);
+            }, '');
         }
     };
 })();
