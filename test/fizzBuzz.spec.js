@@ -8,4 +8,7 @@ describe('fizzBuzz', function() {
     it('should say Fizz when it is multiple of 3', function() {
         expect(fizzBuzz.say(3)).to.be.equals('Fizz');
     });
+    it('should say Buzz when it is multiple of 5', function() {
+        expect(fizzBuzz.say(5)).to.be.equals('Buzz');
+    });
 });
