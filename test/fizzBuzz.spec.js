@@ -17,4 +17,7 @@ describe('fizzBuzz', function() {
     it('should say Fizz when it contains 3', function() {
         expect(fizzBuzz.say(13)).to.be.equals('Fizz');
     });
+    it('should say Buzz when it contains 5', function() {
+        expect(fizzBuzz.say(52)).to.be.equals('Buzz');
+    });
 });
