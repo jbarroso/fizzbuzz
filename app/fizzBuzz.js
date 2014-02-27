@@ -10,14 +10,21 @@ var fizzBuzz = (function() {
     var isDivisibleBy = function(number, factor) {
         return (number % factor === 0);
     };
+    var DivisibleByRule = function(opt) {
+        return function(number) {
+            return isDivisibleBy(number, opt.factor) ?
+                opt.result : '';
+        };
+    };
+    var rules = [
+        DivisibleByRule(fizz),
+        DivisibleByRule(buzz)
+    ];
     return {
         say: function(number) {
             var output = '';
-            if (isDivisibleBy(number, fizz.factor)) {
-                output = fizz.result;
-            }
-            if (isDivisibleBy(number, buzz.factor)) {
-                output += buzz.result;
+            for (var i = 0, l = rules.length; i < l; i++) {
+                output += rules[i](number);
             }
             return (output === '') ? number : output;
         }
