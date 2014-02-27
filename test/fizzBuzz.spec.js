@@ -5,4 +5,7 @@ describe('fizzBuzz', function() {
     it('should say number when it is 1', function() {
         expect(fizzBuzz.say(1)).to.be.equals(1);
     });
+    it('should say Fizz when it is multiple of 3', function() {
+        expect(fizzBuzz.say(3)).to.be.equals('Fizz');
+    });
 });
