@@ -1,8 +1,14 @@
-var fizzBuzz = {
-    say: function(number) {
-        if (number % 3 === 0) {
-            return 'Fizz';
+var fizzBuzz = (function() {
+    var fizz = {
+        factor: 3,
+        result: 'Fizz'
+    };
+    return {
+        say: function(number) {
+            if (number % fizz.factor === 0) {
+                return fizz.result;
+            }
+            return number;
         }
-        return number;
-    }
-};
+    };
+})();
