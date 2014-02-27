@@ -11,22 +11,26 @@ var fizzBuzz = (function() {
         return (number % factor === 0);
     };
     var DivisibleByRule = function(opt) {
-        return function(number) {
+        return function(output, number) {
             return isDivisibleBy(number, opt.factor) ?
-                opt.result : '';
+                output + opt.result : output;
         };
+    };
+    var DefaultNumberRule = function(output, number) {
+        return output === '' ? number : output;
     };
     var rules = [
         DivisibleByRule(fizz),
-        DivisibleByRule(buzz)
+        DivisibleByRule(buzz),
+        DefaultNumberRule
     ];
     return {
         say: function(number) {
             var output = '';
             for (var i = 0, l = rules.length; i < l; i++) {
-                output += rules[i](number);
+                output = rules[i](output, number);
             }
-            return (output === '') ? number : output;
+            return output;
         }
     };
 })();
