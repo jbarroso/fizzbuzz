@@ -14,4 +14,7 @@ describe('fizzBuzz', function() {
     it('should say FizzBuzz when it is multiple of 3 and 5', function() {
         expect(fizzBuzz.say(15)).to.be.equals('FizzBuzz');
     });
+    it('should say Fizz when it contains 3', function() {
+        expect(fizzBuzz.say(13)).to.be.equals('Fizz');
+    });
 });
