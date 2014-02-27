@@ -12,6 +12,10 @@ var fizzBuzz = (function() {
     };
     return {
         say: function(number) {
+            if (isDivisibleBy(number, fizz.factor) &&
+                isDivisibleBy(number, buzz.factor)) {
+                return fizz.result + buzz.result;
+            }
             if (isDivisibleBy(number, fizz.factor)) {
                 return fizz.result;
             }
