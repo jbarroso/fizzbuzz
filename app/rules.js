@@ -23,7 +23,7 @@ var fizzBuzz = (function(fb) {
     };
     fb.rules = [
         fb.DivisibleByOrContainsRule(fb.fizz),
-        fb.DivisibleByRule(fb.buzz),
+        fb.DivisibleByOrContainsRule(fb.buzz),
         fb.DefaultNumberRule
     ];
     return fb;
