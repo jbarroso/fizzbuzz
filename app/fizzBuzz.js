@@ -12,17 +12,14 @@ var fizzBuzz = (function() {
     };
     return {
         say: function(number) {
-            if (isDivisibleBy(number, fizz.factor) &&
-                isDivisibleBy(number, buzz.factor)) {
-                return fizz.result + buzz.result;
-            }
+            var output = '';
             if (isDivisibleBy(number, fizz.factor)) {
-                return fizz.result;
+                output = fizz.result;
             }
             if (isDivisibleBy(number, buzz.factor)) {
-                return buzz.result;
+                output += buzz.result;
             }
-            return number;
+            return (output === '') ? number : output;
         }
     };
 })();
