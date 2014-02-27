@@ -1,34 +1,33 @@
-var fizzBuzz = (function() {
-    var fizz = {
+var fizzBuzz = (function(fb) {
+    fb.fizz = {
         factor: 3,
         result: 'Fizz'
     };
-    var buzz = {
+    fb.buzz = {
         factor: 5,
         result: 'Buzz'
     };
     var isDivisibleBy = function(number, factor) {
         return (number % factor === 0);
     };
-    var DivisibleByRule = function(opt) {
+    fb.DivisibleByRule = function(opt) {
         return function(output, number) {
             return isDivisibleBy(number, opt.factor) ?
                 output + opt.result : output;
         };
     };
-    var DefaultNumberRule = function(output, number) {
+    fb.DefaultNumberRule = function(output, number) {
         return output === '' ? number : output;
     };
-    var rules = [
-        DivisibleByRule(fizz),
-        DivisibleByRule(buzz),
-        DefaultNumberRule
+    fb.rules = [
+        fb.DivisibleByRule(fb.fizz),
+        fb.DivisibleByRule(fb.buzz),
+        fb.DefaultNumberRule
     ];
-    return {
-        say: function(number) {
-            return rules.reduce(function(output, rule) {
-                return rule(output, number);
-            }, '');
-        }
+    fb.say = function(number) {
+        return fb.rules.reduce(function(output, rule) {
+            return rule(output, number);
+        }, '');
     };
-})();
+    return fb;
+})(fizzBuzz || {});
