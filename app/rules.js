@@ -8,11 +8,19 @@ var fizzBuzz = (function(fb) {
                 output + opt.result : output;
         };
     };
+    fb.DivisibleByOrContainsRule = function(opt) {
+        return function(output, number) {
+            return isDivisibleBy(number, opt.factor) ||
+                number.toString().indexOf(opt.factor) !== -1 ?
+                output + opt.result : output;
+        };
+    };
+
     fb.DefaultNumberRule = function(output, number) {
         return output === '' ? number : output;
     };
     fb.rules = [
-        fb.DivisibleByRule(fb.fizz),
+        fb.DivisibleByOrContainsRule(fb.fizz),
         fb.DivisibleByRule(fb.buzz),
         fb.DefaultNumberRule
     ];
